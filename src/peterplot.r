@@ -13,7 +13,9 @@ sequences = readDNAStringSet(infile)
 srna_freq = data.frame(Length = width(sequences),
                        Nucleotide = substr(sequences, 1, 1))
 
-ggplot(srna_freq) +
+p = ggplot(srna_freq) +
     aes(Length, fill = Nucleotide) +
     geom_bar(aes(y = ..count.. / sum(..count..))) +
     labs(title = name, y = 'Proportion')
+
+ggsave(outfile, p)
