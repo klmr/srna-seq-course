@@ -16,4 +16,4 @@ srna_freq = data.frame(Length = width(sequences),
 ggplot(srna_freq) +
     aes(Length, fill = Nucleotide) +
     geom_bar(aes(y = ..count.. / sum(..count..))) +
-    ggtitle(name)
+    labs(title = name, y = 'Proportion')
