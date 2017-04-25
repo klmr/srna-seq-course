@@ -5,13 +5,13 @@ name = args[1]
 infile = args[2]
 outfile = args[3]
 
-library(Biostrings)
+library(ShortRead)
 library(ggplot2)
 
-sequences = readDNAStringSet(infile)
+sequences = readFasta(infile)
 
 srna_freq = data.frame(Length = width(sequences),
-                       Nucleotide = substr(sequences, 1, 1))
+                       Nucleotide = substr(sread(sequences), 1, 1))
 
 p = ggplot(srna_freq) +
     aes(Length, fill = Nucleotide) +
