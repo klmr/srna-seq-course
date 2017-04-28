@@ -19,7 +19,6 @@ overlaps = subsetByOverlaps(bam, annotation)
 p = ggplot(as.data.frame(overlaps)) +
     aes(x = start) +
     geom_density(fill = 'black') +
-    facet_wrap(~ seqnames, ncol = 1, scales = 'free',
-               labeller = function (x) sprintf('chr %s', x))
+    ggtitle(paste('Chr ', seqnames(annotation)))
 
 ggsave(outfile, p, width = 10, height = 2)
